@@ -1,10 +1,4 @@
 const { Schema, model } = require("mongoose");
-
-const validateEmail = function (email) {
-  const format = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  return format.test(email);
-};
-
 const userSchema = new Schema(
   {
     username: {
@@ -17,20 +11,19 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      validate: [validateEmail, "Please enter valid email!"],
       match: [
         /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
         "Please fill a valid email address",
       ],
     },
-    thoughts: {
+    thoughts: [{
       type: Schema.Types.ObjectId,
       ref: "Thought",
-    },
-    friends: {
+    }],
+    friends: [{
       type: Schema.Types.ObjectId,
       ref: "User",
-    },
+    }],
   },
   {
     toJSON: {
@@ -39,7 +32,10 @@ const userSchema = new Schema(
     id: false,
   }
 );
-// create virtual called friendCount
+
+userSchema.virtual('friendCount').get(function () {
+  return this.friends.length;
+})
 
 const User = model('User', userSchema);
 

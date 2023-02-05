@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(routes);
 
 db.once("open", () => {
-  app._routerlisten(PORT, () => {
+  app.listen(PORT, () => {
     console.log(`API server runnning on PORT ${PORT}`);
   });
 });
