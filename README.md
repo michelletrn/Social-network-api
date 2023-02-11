@@ -21,7 +21,7 @@ Using MongoDB/Mongoose, this social network api allows a user to post thoughts a
 ## Usage
 Walkthrough video: https://drive.google.com/file/d/1zUIpewllEiszynDM1F7bwde787_GIfZh/view?usp=sharing
 
-https://drive.google.com/file/d/1hlfgtv7LMWKJY2o9IzNVib-ASLiKGwDK/view?usp=sharing
+Screenshot: https://drive.google.com/file/d/1hlfgtv7LMWKJY2o9IzNVib-ASLiKGwDK/view?usp=sharing
 
 ## Credits
 Michelle Tran - Github(michelletrn)
